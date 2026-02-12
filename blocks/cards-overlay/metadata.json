@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-overlay",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-02-12T13:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://academy.worldbank.org/en/home",
+    "originPage": "World Bank Academy homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "value-proposition",
+    "imagePattern": "background-overlay",
+    "structure": "image-background + heading + description"
+  },
+  "contentPattern": {
+    "structure": "4 cards in asymmetric 2x2 grid with image backgrounds and text overlays",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "value proposition sections",
+      "feature highlight grids with images",
+      "visual storytelling cards"
+    ],
+    "notSuitableFor": [
+      "simple text-only card lists",
+      "product listing cards",
+      "data-heavy card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-12T13:01:00.000Z"
+  }
+}

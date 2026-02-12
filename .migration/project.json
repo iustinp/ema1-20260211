@@ -1,0 +1,24 @@
+{
+  "type": "xwalk",
+  "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+  "contentHostUrl": "author-p130360-e1585120.adobeaemcloud.com",
+  "mountpoint": "https://author-p130360-e1585120.adobeaemcloud.com/bin/franklin.delivery/iustinp/ema1-20260211/main",
+  "blocks": [
+    "accordion",
+    "cards",
+    "carousel",
+    "columns",
+    "embed",
+    "footer",
+    "form",
+    "fragment",
+    "header",
+    "hero",
+    "modal",
+    "quote",
+    "search",
+    "table",
+    "tabs",
+    "video"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "url": "https://academy.worldbank.org/en/home",
+  "sections": [
+    {
+      "id": "section-1",
+      "name": "Hero Banner",
+      "selector": "section.video-banner",
+      "style": null,
+      "description": "Full-width hero with video background, large heading 'Knowledge to Scale Impact', descriptive paragraph, and scroll-to-explore indicator. Blue gradient overlays on left and right edges.",
+      "contentSequences": [
+        {
+          "id": "seq-1-1",
+          "type": "hero-video",
+          "selector": "section.video-banner",
+          "description": "Video background hero with h1 heading, subtitle paragraph, and scroll indicator CTA",
+          "content": {
+            "heading": "Knowledge to Scale Impact",
+            "text": "We're building on more than 80 years of experience to accelerate development outcomes. To create jobs. To connect communities. To solve critical problems. And to deliver real opportunity and lasting prosperity.",
+            "cta": "Scroll to explore",
+            "video": "https://worldbank.scene7.com/is/content/worldbankprod/videos/ecrgp/2025/oct/academy_banner_final-0x720-3000k.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "name": "Value Proposition Cards",
+      "selector": "section.sticky-section#one-center",
+      "style": null,
+      "description": "Section with heading 'Learn. Adapt. Scale.' and blue CTA button, plus 4 overlapping image cards in a 2x2 asymmetric grid pattern. Each card has a background image, heading, and description text. Cards: Powerful connections, Global experience, Hands on how-to's, Accelerate impact.",
+      "contentSequences": [
+        {
+          "id": "seq-2-1",
+          "type": "heading-and-cta",
+          "selector": "section.sticky-section .sticky-content",
+          "description": "Section heading with CTA button",
+          "content": {
+            "heading": "Learn. Adapt. Scale.",
+            "cta": "Explore the Programs",
+            "ctaUrl": "https://academy.worldbank.org/en/our-programs"
+          }
+        },
+        {
+          "id": "seq-2-2",
+          "type": "image-cards-grid",
+          "selector": ".lp-sticky-card-grid",
+          "description": "4 image-overlay cards in asymmetric 2x2 grid (large-medium-medium-large). Each has background image, heading, and description text.",
+          "content": {
+            "cards": [
+              {"heading": "Powerful connections", "image": true, "description": "Work with today's government leaders..."},
+              {"heading": "Global experience", "image": true, "description": "Learn from Peers around the world..."},
+              {"heading": "Hands on how-to's", "image": true, "description": "Gain practical skills and enjoy access..."},
+              {"heading": "Accelerate impact", "image": true, "description": "Fast-track your learning and personal development..."}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "name": "Program Types",
+      "selector": ".supergrid:nth-of-type(2) .academySliderComp",
+      "style": null,
+      "description": "Section with heading 'Learn from Peers. Adapt to your Needs. Scale your Impact.' with 3 program cards: Impact Programs (large featured card), Practitioner Programs, and Working with the World Bank Group. Left column has featured large card, right column has 2 stacked cards.",
+      "contentSequences": [
+        {
+          "id": "seq-3-1",
+          "type": "section-heading",
+          "selector": ".lp-aca-heading",
+          "description": "Section heading text",
+          "content": {
+            "heading": "Learn from Peers. Adapt to your Needs. Scale your Impact."
+          }
+        },
+        {
+          "id": "seq-3-2",
+          "type": "program-cards",
+          "selector": ".academySliderComp .sticky-column",
+          "description": "3 program type cards in 2-column layout. Left: 1 large featured card with tag, image, title, description, and learn more link. Right: 2 stacked cards with image, title, description, and sub-links.",
+          "content": {
+            "cards": [
+              {"title": "Impact Programs", "tag": "New for 2025", "link": "Learn More"},
+              {"title": "Practitioner Programs", "link": "Learn More"},
+              {"title": "Working with the World Bank Group", "links": ["IBRD - IDA", "MIGA", "IFC"]}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "name": "Impact Programs Carousel",
+      "selector": ".supergrid:nth-of-type(3)",
+      "style": "light-blue",
+      "description": "Light blue background section with heading 'Programs for member-country leaders and practitioners', subtitle text, and a horizontal carousel of program cards. Each card has image, 'Impact Programs' tag, title, and description. Carousel has prev/next navigation and 'Learn More' link.",
+      "contentSequences": [
+        {
+          "id": "seq-4-1",
+          "type": "section-heading",
+          "selector": ".lp-aca-heading",
+          "description": "Heading with subtitle",
+          "content": {
+            "heading": "Programs for member-country leaders and practitioners",
+            "subtitle": "Improve reach and scale. Accelerate impact."
+          }
+        },
+        {
+          "id": "seq-4-2",
+          "type": "program-carousel",
+          "selector": ".academy-carousel",
+          "description": "Horizontal carousel of 11 impact program cards. Each has image, tag, title, description.",
+          "content": {
+            "cardCount": 11,
+            "sampleCards": [
+              "Insuring Against Disaster Risk",
+              "Accelerating Urban E-Mobility Solutions",
+              "Creating Jobs for the Poor",
+              "Scaling Next Generation Rice"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "name": "Find Your Program",
+      "selector": "section.lp-find-program",
+      "style": null,
+      "description": "Program finder section with heading 'Find your program' and 3 cascading dropdown filters (Topic, Format, Program) plus a Go button. White background.",
+      "contentSequences": [
+        {
+          "id": "seq-5-1",
+          "type": "program-finder",
+          "selector": "section.lp-find-program",
+          "description": "Interactive program finder with 3 dropdown filters and Go button",
+          "content": {
+            "heading": "Find your program",
+            "dropdowns": ["Select Topic", "Select Format", "Select Program"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "name": "Programs for All",
+      "selector": ".supergrid:nth-of-type(5)",
+      "style": "light-blue",
+      "description": "Light blue background section with heading 'Programs for all', subtitle text, and tabbed interface. Tabs: People, Planet, Prosperity, Infrastructure, Digital, Cross-Cutting Areas. Each tab contains a card carousel with program cards (image, title, description). Also contains a 'View All Courses' link.",
+      "contentSequences": [
+        {
+          "id": "seq-6-1",
+          "type": "section-heading",
+          "selector": ".lp-aca-heading",
+          "description": "Heading with subtitle",
+          "content": {
+            "heading": "Programs for all",
+            "subtitle": "Learn from global faculty and practitioners at the forefront of their fields"
+          }
+        },
+        {
+          "id": "seq-6-2",
+          "type": "tabbed-carousels",
+          "selector": ".lp__tab",
+          "description": "Tabbed interface with 6 tabs, each containing a card carousel with program topic cards",
+          "content": {
+            "tabs": ["People", "Planet", "Prosperity", "Infrastructure", "Digital", "Cross-Cutting Areas"]
+          }
+        }
+      ]
+    }
+  ],
+  "blockInventory": {
+    "local": ["accordion", "cards", "carousel", "columns", "embed", "footer", "form", "fragment", "header", "hero", "modal", "quote", "search", "table", "tabs", "video"],
+    "recommended": {
+      "hero": "Hero block with video background support",
+      "cards": "Card grid/list for program cards",
+      "carousel": "Horizontal carousel for program listings",
+      "tabs": "Tabbed interface for categorized content",
+      "columns": "Multi-column layout for program types"
+    }
+  }
+}

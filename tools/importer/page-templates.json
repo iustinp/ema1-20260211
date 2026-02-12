@@ -1,0 +1,87 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://academy.worldbank.org/en/home"
+      ],
+      "description": "World Bank Academy homepage with hero, featured courses, programs, and promotional sections",
+      "blocks": [
+        {
+          "name": "hero-video",
+          "instances": ["section.video-banner"]
+        },
+        {
+          "name": "cards-overlay",
+          "instances": [".lp-sticky-card-grid"]
+        },
+        {
+          "name": "cards-program",
+          "instances": [".academySliderComp .sticky-column"]
+        },
+        {
+          "name": "carousel-program",
+          "instances": [".academy-carousel"]
+        },
+        {
+          "name": "form-finder",
+          "instances": ["section.lp-find-program"]
+        },
+        {
+          "name": "tabs-program",
+          "instances": [".lp__tab"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero Banner",
+          "selector": "section.video-banner",
+          "style": null,
+          "blocks": ["hero-video"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Value Proposition Cards",
+          "selector": "section.sticky-section#one-center",
+          "style": null,
+          "blocks": ["cards-overlay"],
+          "defaultContent": [".sticky-content h2", ".sticky-content a.btn"]
+        },
+        {
+          "id": "section-3",
+          "name": "Program Types",
+          "selector": ".academySliderComp",
+          "style": null,
+          "blocks": ["cards-program"],
+          "defaultContent": [".lp-aca-heading h2"]
+        },
+        {
+          "id": "section-4",
+          "name": "Impact Programs Carousel",
+          "selector": ".tui_full_row_swiper",
+          "style": null,
+          "blocks": ["carousel-program"],
+          "defaultContent": [".lp-aca-heading h2", ".lp-aca-heading p"]
+        },
+        {
+          "id": "section-5",
+          "name": "Find Your Program",
+          "selector": "section.lp-find-program",
+          "style": null,
+          "blocks": ["form-finder"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Programs for All",
+          "selector": [".tui_full_row_swiper:nth-of-type(2)", ".supergrid:has(.lp__tab)"],
+          "style": null,
+          "blocks": ["tabs-program"],
+          "defaultContent": [".lp-aca-heading h2", ".lp-aca-heading .lp-body-text-medium"]
+        }
+      ]
+    }
+  ]
+}
