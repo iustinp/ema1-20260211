@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p130360-e1585120.adobeaemcloud.com/bin/franklin.delivery/iustinp/ema1-20260211/main"
+    url: "https://author-p130360-e1585120.adobeaemcloud.com/bin/franklin.delivery/iustinp/iustinp-ema1-20260211/main"
     type: "markup"
     suffix: ".html"
