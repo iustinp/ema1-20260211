@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--ema1-20260211--iustinp.aem.page/
+- Live: https://main--ema1-20260211--iustinp.aem.live/
 
 ## Documentation
 
