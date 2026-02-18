@@ -528,3 +528,34 @@ body.practitioner-program main > .section:nth-child(2) {
     box-sizing: border-box;
   }
 }
+
+/* Styles for AEM Universal Editor mode — override vh heights that cause
+   infinitely tall pages inside the editor iframe. */
+/* stylelint-disable no-descending-specificity */
+html.adobe-ue-preview,
+html.adobe-ue-edit {
+  height: unset;
+
+  /* hero-video block */
+  .hero-video {
+    min-height: 600px;
+  }
+
+  /* cards-overlay sticky section */
+  .cards-overlay-sticky-section > .default-content-wrapper:first-child {
+    min-height: 600px;
+  }
+
+  /* cards-overlay sticky section — mobile breakpoint override */
+  @media (width < 900px) {
+    .cards-overlay-sticky-section > .default-content-wrapper:first-child {
+      min-height: 400px;
+    }
+  }
+
+  /* header expanded nav panel */
+  header nav.nav-home[aria-expanded='true'] .nav-sections {
+    height: auto;
+    max-height: 600px;
+  }
+}
