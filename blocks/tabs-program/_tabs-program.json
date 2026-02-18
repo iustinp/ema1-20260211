@@ -9,6 +9,7 @@
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
               "name": "Tabs Program",
+              "model": "tabs-program",
               "filter": "tabs-program"
             }
           }
@@ -23,10 +24,10 @@
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "name": "Tab",
+              "name": "Card",
               "model": "tabs-program-item",
-              "title": "Tab Name",
-              "content_headingType": "h3"
+              "tab": "Tab Name",
+              "title": "Card Title"
             }
           }
         }
@@ -35,59 +36,38 @@
   ],
   "models": [
     {
+      "id": "tabs-program",
+      "fields": []
+    },
+    {
       "id": "tabs-program-item",
       "fields": [
         {
           "component": "text",
           "valueType": "string",
-          "name": "title",
+          "name": "tab",
           "value": "",
-          "label": "Tab Title"
+          "label": "Tab"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "content_heading",
+          "name": "title",
           "value": "",
-          "label": "Heading"
-        },
-        {
-          "component": "select",
-          "valueType": "string",
-          "name": "content_headingType",
-          "value": "",
-          "label": "Heading Type",
-          "options": [
-            {
-              "name": "H3",
-              "value": "h3"
-            },
-            {
-              "name": "H4",
-              "value": "h4"
-            },
-            {
-              "name": "H5",
-              "value": "h5"
-            },
-            {
-              "name": "H6",
-              "value": "h6"
-            }
-          ]
+          "label": "Card Title"
         },
         {
           "component": "reference",
           "valueType": "string",
-          "name": "content_image",
+          "name": "image",
           "label": "Image",
           "multi": false
         },
         {
           "component": "richtext",
-          "name": "content_richtext",
+          "name": "description",
           "value": "",
-          "label": "Content",
+          "label": "Description",
           "valueType": "string"
         }
       ]

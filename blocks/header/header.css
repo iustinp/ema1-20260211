@@ -1,21 +1,22 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #fff;
   width: 100%;
   z-index: 2;
   position: fixed;
 }
 
 header nav {
-  box-sizing: border-box;
+  box-sizing: content-box;
+  border-bottom: 1px solid #00396b14;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
+    'brand brand hamburger' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1456px;
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
@@ -23,11 +24,11 @@ header nav {
 
 header nav[aria-expanded='true'] {
   grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
+    'brand hamburger' var(--nav-height)
+    'tools tools' auto
+    'sections sections' auto / 1fr auto;
   overflow-y: auto;
-  min-height: 100dvh;
+  height: auto;
 }
 
 @media (width >= 900px) {
@@ -35,13 +36,25 @@ header nav[aria-expanded='true'] {
     display: flex;
     justify-content: space-between;
     gap: 0 32px;
-    max-width: 1264px;
+    max-width: 1456px;
     padding: 0 32px;
   }
 
   header nav[aria-expanded='true'] {
     min-height: 0;
     overflow: visible;
+  }
+
+  header nav .nav-tools {
+    display: block;
+    visibility: visible;
+    order: 1;
+    margin-left: auto;
+    padding: 0;
+  }
+
+  header nav .nav-search-form input[type="search"] {
+    width: 220px;
   }
 }
 
@@ -64,15 +77,20 @@ header nav .nav-hamburger {
 
 header nav .nav-hamburger button {
   height: 22px;
+  width: 32px;
   margin: 0;
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: #fff;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -81,7 +99,6 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -94,37 +111,56 @@ header nav .nav-hamburger-icon::after {
 header nav[aria-expanded='false'] .nav-hamburger-icon,
 header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  height: 2px;
-  border-radius: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
   background: currentcolor;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
+  top: -8px;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
+  top: 8px;
+}
+
+header nav[aria-expanded='true'] .nav-hamburger {
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav[aria-expanded='true'] .nav-hamburger button {
+  width: 40px;
+  height: 40px;
+  background: #004370;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
+  height: 18px;
+  width: 18px;
+  background: none;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::before,
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
-  left: 1px;
+  top: 8px;
+  left: -1px;
   transform: rotate(45deg);
-  transform-origin: 2px 1px;
-  width: 24px;
+  width: 20px;
   height: 2px;
   border-radius: 2px;
+  background: #fff;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
+  top: 8px;
   transform: rotate(-45deg);
 }
 
@@ -138,15 +174,41 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  flex-basis: auto;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1;
+  color: #012740;
+  overflow: hidden;
+}
+
+@media (width >= 900px) {
+  header .nav-brand {
+    font-size: 28px;
+  }
+}
+
+header .nav-brand .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header .nav-brand .default-content-wrapper p:first-child {
+  padding-right: 16px;
+  border-right: 2px solid #c0c0c0;
+  line-height: 0;
 }
 
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+}
+
+@media (width >= 900px) {
+  header nav .nav-brand img {
+    width: 180px;
+  }
 }
 
 /* sections */
@@ -155,6 +217,12 @@ header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
+}
+
+@media (width < 900px) {
+  header nav[aria-expanded='true'] .nav-brand {
+    visibility: hidden;
+  }
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -166,11 +234,12 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: 18px;
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 600;
+  color: #004370;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -181,11 +250,52 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
 }
 
+/* mobile menu item styling */
+@media (width < 900px) {
+  header nav .nav-sections ul {
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav .nav-sections ul > li {
+    padding-bottom: 16px;
+    font-weight: 700;
+    color: rgb(0 13 26 / 70%);
+  }
+
+  header nav .nav-sections ul > li > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  header nav .nav-sections ul > li > a::before {
+    content: "\203A";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: #bdccd8;
+    border-radius: 50%;
+    margin-right: 16px;
+    color: #004370;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+  }
+}
+
 @media (width >= 900px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
     white-space: nowrap;
+    order: 2;
+    flex: 0 1 auto;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -266,21 +376,81 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: none;
+  visibility: hidden;
+  align-self: center;
 }
 
-header nav .nav-tools .button {
+header nav[aria-expanded='true'] .nav-tools {
+  display: block;
+  visibility: visible;
+  padding: 16px 0;
+}
+
+/* search form */
+header nav .nav-search-form {
+  display: flex;
+  align-items: center;
+  position: relative;
   margin: 0;
+}
+
+header nav .nav-search-form input[type="search"] {
+  width: 100%;
+  height: 45px;
+  padding: 0 52px 0 20px;
+  border: 1px solid #c0c0c0;
+  border-radius: 100px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  color: #012740;
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+header nav .nav-search-form input[type="search"]::placeholder {
+  color: #6b7b8d;
+}
+
+header nav .nav-search-form input[type="search"]:focus {
+  border-color: #009fda;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-search-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #004370;
   border: none;
-  padding: 0.5em;
-  background: none;
-  line-height: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+header nav .nav-search-form button:hover {
+  background: #012740;
+}
+
+header nav .nav-search-form button .icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
 }
 
 /* breadcrumbs */
 header .breadcrumbs {
   display: none;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1456px;
   height: var(--breadcrumbs-height);
   padding: 0 24px;
   font-size: var(--body-font-size-xs);
@@ -316,7 +486,316 @@ header .breadcrumbs ol li[aria-current] {
 @media (width >= 900px) {
   header .breadcrumbs {
     display: block;
-    max-width: 1264px;
+    max-width: 1456px;
     padding: 0 32px;
+  }
+}
+
+/* ==========================================
+   nav-home variant (homepage transparent header)
+   ========================================== */
+
+/* header element: zero height so hero goes behind */
+header.nav-home {
+  height: 0;
+}
+
+/* wrapper: transparent, no border, absolute over hero */
+header .nav-wrapper.nav-home {
+  background-color: transparent;
+  border-bottom: none;
+  position: absolute;
+}
+
+/* dark gradient overlay for readability over hero video/image */
+header .nav-wrapper.nav-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(rgb(0 0 0) 0%, rgb(0 0 0 / 0%) 100%);
+  pointer-events: none;
+}
+
+/* grid layout: brand + tools + hamburger on one row */
+header nav.nav-home {
+  grid-template:
+    'brand tools hamburger' var(--nav-height)
+    'sections sections sections' 1fr / auto 1fr auto;
+  color: #fff;
+}
+
+header nav.nav-home[aria-expanded='true'] {
+  grid-template:
+    'brand tools hamburger' var(--nav-height)
+    'sections sections sections' auto / auto 1fr auto;
+  overflow-y: visible;
+  height: var(--nav-height);
+  background: transparent;
+}
+
+/* brand: white text, white separator */
+header nav.nav-home .nav-brand {
+  color: rgb(255 255 255 / 90%);
+  position: relative;
+  z-index: 1;
+}
+
+/* brand stays visible when expanded (override general mobile hide) */
+header nav.nav-home[aria-expanded='true'] .nav-brand {
+  visibility: visible;
+}
+
+header nav.nav-home .nav-brand .default-content-wrapper p:first-child {
+  border-right-color: rgb(255 255 255 / 40%);
+}
+
+/* logo: invert to white */
+/* stylelint-disable-next-line no-descending-specificity */
+header nav.nav-home .nav-brand img {
+  filter: brightness(0) invert(1);
+}
+
+/* tools: always visible (search icon stays outside hamburger) */
+header nav.nav-home .nav-tools {
+  display: flex;
+  visibility: visible;
+  align-self: center;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* search icon button */
+header nav.nav-home .nav-search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: rgb(255 255 255 / 75%);
+  text-decoration: none;
+}
+
+header nav.nav-home .nav-search-icon .icon img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+}
+
+/* hamburger: always visible, 3 horizontal lines (not dots) */
+header nav.nav-home .nav-hamburger {
+  display: flex;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav.nav-home .nav-hamburger button {
+  background-color: transparent;
+  color: #fff;
+}
+
+header nav.nav-home[aria-expanded='false'] .nav-hamburger-icon,
+header nav.nav-home[aria-expanded='false'] .nav-hamburger-icon::before,
+header nav.nav-home[aria-expanded='false'] .nav-hamburger-icon::after {
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  background: #fff;
+}
+
+header nav.nav-home[aria-expanded='false'] .nav-hamburger-icon::before {
+  top: -6px;
+}
+
+header nav.nav-home[aria-expanded='false'] .nav-hamburger-icon::after {
+  top: 6px;
+}
+
+/* expanded: close button — bright blue circle with white X */
+header nav.nav-home[aria-expanded='true'] .nav-hamburger button {
+  background: #169af3;
+  color: #fff;
+}
+
+/* sections: always hidden until hamburger toggled */
+header nav.nav-home .nav-sections {
+  display: none;
+  visibility: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* expanded: right-side white panel */
+header nav.nav-home[aria-expanded='true'] .nav-sections {
+  display: block;
+  visibility: visible;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 276px;
+  height: 100vh;
+  background: #fff;
+  padding: 96px 56px 56px;
+  box-sizing: border-box;
+  z-index: 2;
+  border-radius: 10px 0 0;
+}
+
+/* menu items in nav-home: clean dark text, no bullets */
+header nav.nav-home .nav-sections ul {
+  list-style: none;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* force vertical stacking in panel (override general 900px flex) */
+header nav.nav-home[aria-expanded='true'] .nav-sections ul {
+  display: block;
+}
+
+header nav.nav-home .nav-sections ul > li {
+  padding-bottom: 12px;
+  font-weight: 400;
+  color: #001c2d;
+}
+
+header nav.nav-home .nav-sections ul > li > a {
+  text-decoration: none;
+  color: #001c2d;
+}
+
+/* no circle chevron bullets */
+/* stylelint-disable-next-line no-descending-specificity */
+header nav.nav-home .nav-sections ul > li > a::before {
+  display: none;
+}
+
+/* "back to worldbank.org" link */
+header nav.nav-home .nav-back-link {
+  display: block;
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid rgb(0 57 107 / 16%);
+  font-size: 12px;
+  font-weight: 400;
+  color: #001c2d;
+  text-decoration: none;
+}
+
+/* expanded: hamburger close button over the panel */
+header nav.nav-home[aria-expanded='true'] .nav-hamburger {
+  z-index: 3;
+}
+
+/* keep nav-home in grid layout between 900–1280px (general header switches to flex at 900px) */
+@media (width >= 900px) and (width < 1280px) {
+  header nav.nav-home {
+    display: grid;
+  }
+}
+
+/* desktop overrides for nav-home */
+@media (width >= 1280px) {
+  header nav.nav-home {
+    display: flex;
+    align-items: center;
+    gap: 0 32px;
+    max-width: 1456px;
+    padding: 32px 48px;
+    background: transparent;
+  }
+
+  /* brand: smaller font to match source (18px instead of 28px) */
+  header nav.nav-home .nav-brand {
+    order: 0;
+    font-size: 18px;
+  }
+
+  header nav.nav-home .nav-brand img {
+    width: 242px;
+  }
+
+  /* sections: visible inline, right-aligned — reset panel styles */
+  header nav.nav-home .nav-sections {
+    display: block;
+    visibility: visible;
+    order: 1;
+    margin-left: auto;
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+  }
+
+  header nav.nav-home .nav-sections ul {
+    display: flex;
+    gap: 0 28px;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  header nav.nav-home .nav-sections ul > li {
+    padding-bottom: 0;
+    font-weight: 600;
+    color: rgb(255 255 255 / 75%);
+  }
+
+  /* remove circle chevron bullets on desktop */
+  header nav.nav-home .nav-sections ul > li > a::before {
+    display: none;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav.nav-home .nav-sections ul > li > a {
+    color: inherit;
+  }
+
+  /* hide "back to worldbank.org" on desktop */
+  header nav.nav-home .nav-back-link {
+    display: none;
+  }
+
+  /* tools: right of nav links */
+  header nav.nav-home .nav-tools {
+    order: 2;
+    margin-left: 0;
+  }
+
+  /* hamburger: hidden on desktop */
+  header nav.nav-home .nav-hamburger {
+    display: none;
+    visibility: hidden;
+  }
+
+  /* override expanded-state panel styles on desktop (match specificity) */
+  header nav.nav-home[aria-expanded='true'] {
+    height: auto;
+    overflow: visible;
+  }
+
+  header nav.nav-home[aria-expanded='true'] .nav-brand {
+    visibility: visible;
+  }
+
+  header nav.nav-home[aria-expanded='true'] .nav-sections {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  header nav.nav-home[aria-expanded='true'] .nav-sections ul {
+    display: flex;
   }
 }

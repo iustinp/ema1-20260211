@@ -213,6 +213,7 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Carousel Program",
+                  "model": "carousel-program",
                   "filter": "carousel-program"
                 }
               }
@@ -510,6 +511,7 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Tabs Program",
+                  "model": "tabs-program",
                   "filter": "tabs-program"
                 }
               }
@@ -524,10 +526,10 @@
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Tab",
+                  "name": "Card",
                   "model": "tabs-program-item",
-                  "title": "Tab Name",
-                  "content_headingType": "h3"
+                  "tab": "Tab Name",
+                  "title": "Card Title"
                 }
               }
             }
