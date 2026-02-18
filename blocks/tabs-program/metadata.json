@@ -1,0 +1,40 @@
+{
+  "variantName": "tabs-program",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-02-12T13:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://academy.worldbank.org/en/home",
+    "originPage": "World Bank Academy homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "program-categories",
+    "imagePattern": "large",
+    "structure": "6 tabs with card carousels per tab"
+  },
+  "contentPattern": {
+    "structure": "tabbed interface with 6 category tabs, each containing card carousels",
+    "buttonCount": 6,
+    "imageCount": 18
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "categorized program listings",
+      "topic-based content sections",
+      "multi-category browsing interfaces"
+    ],
+    "notSuitableFor": [
+      "simple FAQ tabs",
+      "text-only tabbed content",
+      "settings/configuration panels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-12T13:01:00.000Z"
+  }
+}

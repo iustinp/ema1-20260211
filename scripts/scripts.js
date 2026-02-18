@@ -96,6 +96,36 @@ function a11yLinks(main) {
 }
 
 /**
+ * Practitioner-program template: wrap course metadata fields
+ * (Delivery Mode, Location, Language, etc.) in a flex container
+ * so they wrap naturally on smaller viewports.
+ */
+function decoratePractitionerProgram(main) {
+  if (!document.body.classList.contains('practitioner-program')) return;
+  const section = main.querySelector('.section:first-child .default-content-wrapper');
+  if (!section) return;
+
+  const labels = section.querySelectorAll('p:has(> strong)');
+  if (!labels.length) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'metadata-bar';
+
+  labels.forEach((label) => {
+    const value = label.nextElementSibling;
+    const item = document.createElement('div');
+    item.className = 'metadata-item';
+    item.appendChild(label);
+    if (value && !value.querySelector('strong')) {
+      item.appendChild(value);
+    }
+    bar.appendChild(item);
+  });
+
+  section.appendChild(bar);
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -107,6 +137,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decoratePractitionerProgram(main);
   // add aria-label to links
   a11yLinks(main);
 }
@@ -120,6 +151,11 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
+  }
+  // detect nav-home early to set header height: 0 before paint, avoiding CLS
+  const navMeta = getMetadata('nav');
+  if (navMeta && navMeta.endsWith('/nav-home')) {
+    doc.querySelector('header')?.classList.add('nav-home');
   }
   const main = doc.querySelector('main');
   if (main) {

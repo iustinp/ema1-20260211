@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://academy.worldbank.org/en/how-we-work",
+  "path": "en/how-we-work",
+  "timestamp": "2026-02-13T16:14:34.406Z",
+  "title": "World Bank Group Academy | How We Work",
+  "template": "how-we-work",
+  "blocks": [
+    "columns"
+  ]
+}

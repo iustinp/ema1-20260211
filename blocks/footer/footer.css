@@ -1,20 +1,110 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: #012740;
+  color: #fff;
+  font-size: 14px;
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: 1456px;
+  padding: 40px 48px 60px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* Remove button styling from footer links */
+footer .footer .button-container {
+  display: inline;
+}
+
+footer .footer a.button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+footer .footer a.button:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+/* Brand section - top row: logo | separator | Academy ... Back to worldbank.org */
+footer .footer .section:first-child {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+footer .footer .section:first-child .default-content-wrapper {
+  display: contents;
+}
+
+footer .footer .section:first-child img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Shared link styles for both sections */
+footer .footer .section a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footer .section a:hover {
+  text-decoration: underline;
+}
+
+/* Academy link in brand row */
+footer .footer .section:first-child a {
+  color: rgb(255 255 255 / 90%);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Legal section - bottom row */
+footer .footer .section:last-child {
+  padding-top: 32px;
+  border-top: 2px solid #00538a;
+}
+
+footer .footer .section:last-child a {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Logo paragraph: vertical separator on the right */
+footer .footer .section:first-child p:first-child {
+  padding-right: 24px;
+  border-right: 2px solid rgb(0 83 138 / 60%);
+}
+
+/* "Back to worldbank.org" pushed to the right */
+footer .footer .section:first-child p:last-child {
+  margin-left: auto;
+}
+
+footer .footer .section:first-child p:last-child a {
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+footer .footer .section:last-child .default-content-wrapper p:first-child {
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 40px 48px 60px;
   }
 }

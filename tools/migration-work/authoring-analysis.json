@@ -1,0 +1,209 @@
+{
+  "url": "https://academy.worldbank.org/en/home",
+  "pageTitle": "World Bank Group Academy | Home",
+  "sections": [
+    {
+      "id": "section-1",
+      "name": "Hero Banner",
+      "style": null,
+      "sequences": [
+        {
+          "id": "seq-1-1",
+          "decision": "block",
+          "blockName": "hero-video",
+          "blockVariant": "hero-video",
+          "rationale": "Full-width hero with video background, heading, description, and CTA. This is a classic hero block pattern. The video background is a key feature. An author would use a Hero block with video support rather than default content.",
+          "selector": "section.video-banner",
+          "content": {
+            "heading": "Knowledge to Scale Impact",
+            "text": "We're building on more than 80 years of experience to accelerate development outcomes. To create jobs. To connect communities. To solve critical problems. And to deliver real opportunity and lasting prosperity.",
+            "video": "https://worldbank.scene7.com/is/content/worldbankprod/videos/ecrgp/2025/oct/academy_banner_final-0x720-3000k.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "name": "Value Proposition Cards",
+      "style": null,
+      "sequences": [
+        {
+          "id": "seq-2-1",
+          "decision": "default-content",
+          "rationale": "The heading 'Learn. Adapt. Scale.' and CTA button can be authored as default content - h2 heading followed by a button/link. Simple and natural for authors.",
+          "content": {
+            "heading": "Learn. Adapt. Scale.",
+            "cta": {
+              "text": "Explore the Programs",
+              "url": "https://academy.worldbank.org/en/our-programs"
+            }
+          }
+        },
+        {
+          "id": "seq-2-2",
+          "decision": "block",
+          "blockName": "cards-overlay",
+          "blockVariant": "cards-overlay",
+          "rationale": "4 image-overlay cards in asymmetric grid with images, headings, and descriptions. Cards block with an overlay variant is ideal. Each card has background image + text overlay pattern.",
+          "selector": ".lp-sticky-card-grid",
+          "content": {
+            "cards": [
+              {
+                "image": "./images/e123f003ae0f728f81e3696d219b9ff5.png",
+                "heading": "Powerful connections",
+                "description": "Work with today's government leaders and innovators. Connect with tomorrow's global changemakers."
+              },
+              {
+                "image": "./images/b427d96febd3d230d9c9141a6024827d.png",
+                "heading": "Global experience",
+                "description": "Learn from Peers around the world, Governments, Universities, Private firms, Think tanks, Civil society."
+              },
+              {
+                "image": "./images/d8069d319595a14c0d7a6741f4f57ef6.png",
+                "heading": "Hands on how-to's",
+                "description": "Gain practical skills and enjoy access to toolkits and workshops that build capacity, institutions, and change."
+              },
+              {
+                "image": "./images/8d6070349ebc11a3df3a59479432f6ea.png",
+                "heading": "Accelerate impact",
+                "description": "Fast-track your learning and personal development while increasing capacity and improving outcomes."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "name": "Program Types",
+      "style": null,
+      "sequences": [
+        {
+          "id": "seq-3-1",
+          "decision": "default-content",
+          "rationale": "Section heading 'Learn from Peers. Adapt to your Needs. Scale your Impact.' is a simple h2 heading - ideal as default content.",
+          "content": {
+            "heading": "Learn from Peers. Adapt to your Needs. Scale your Impact."
+          }
+        },
+        {
+          "id": "seq-3-2",
+          "decision": "block",
+          "blockName": "cards-program",
+          "blockVariant": "cards-program",
+          "rationale": "3 program type cards in a 2-column layout with image, title, description, tag, and links. This is a cards block pattern with a featured/stacked layout. Left card is larger (featured), right column has 2 stacked smaller cards.",
+          "selector": ".academySliderComp .sticky-column",
+          "content": {
+            "cards": [
+              {
+                "image": "./images/8be358a0b621388ed87857f775ea7db9.png",
+                "tag": "New for 2025",
+                "heading": "Impact Programs",
+                "description": "Learn from your global peers about replicable solutions, adapt them to your country's context, and accelerate development impact.",
+                "link": {"text": "Learn More", "url": "https://academy.worldbank.org/en/our-programs/by-theme"}
+              },
+              {
+                "image": "./images/03cf8e3e1ed192bab5f32c5098ccc116.png",
+                "heading": "Practitioner Programs",
+                "description": "Build specific skills anytime, anywhere. Boost your individual impact through flexible programs.",
+                "link": {"text": "Learn More", "url": "https://academy.worldbank.org/en/our-programs/by-sector"}
+              },
+              {
+                "image": "./images/5e32340a6b8fe93010aa2f1ee7ff46d0.png",
+                "heading": "Working with the World Bank Group",
+                "description": "Grow your expertise in World Bank Group Programs and financial instruments.",
+                "links": [
+                  {"text": "IBRD - IDA", "url": "https://academy.worldbank.org/en/our-programs/by-instrument#1"},
+                  {"text": "MIGA", "url": "https://academy.worldbank.org/en/our-programs/by-instrument#2"},
+                  {"text": "IFC", "url": "https://academy.worldbank.org/en/our-programs/by-instrument#3"}
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "name": "Impact Programs Carousel",
+      "style": null,
+      "sequences": [
+        {
+          "id": "seq-4-1",
+          "decision": "default-content",
+          "rationale": "Section heading and subtitle are simple text - h2 and paragraph. Natural default content.",
+          "content": {
+            "heading": "Programs for member-country leaders and practitioners",
+            "subtitle": "Improve reach and scale. Accelerate impact."
+          }
+        },
+        {
+          "id": "seq-4-2",
+          "decision": "block",
+          "blockName": "carousel-program",
+          "blockVariant": "carousel-program",
+          "rationale": "Horizontal carousel of 11 impact program cards with swiper navigation. Carousel block is the right choice - it handles horizontal scrolling card collections with prev/next controls. Each card has image, tag, title, description.",
+          "selector": ".academy-carousel",
+          "content": {
+            "cardCount": 11,
+            "learnMoreLink": "https://academy.worldbank.org/en/our-programs/by-theme"
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "name": "Find Your Program",
+      "style": null,
+      "sequences": [
+        {
+          "id": "seq-5-1",
+          "decision": "block",
+          "blockName": "form-finder",
+          "blockVariant": "form-finder",
+          "rationale": "Interactive program finder with 3 cascading dropdown filters and a Go button. This requires a form/search block pattern. The dropdowns are interactive (Topic → Format → Program cascade). A form block or custom search block is needed.",
+          "selector": "section.lp-find-program",
+          "content": {
+            "heading": "Find your program",
+            "fields": ["Topic", "Format", "Program"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "name": "Programs for All",
+      "style": null,
+      "sequences": [
+        {
+          "id": "seq-6-1",
+          "decision": "default-content",
+          "rationale": "Section heading and subtitle are simple text - h2 and paragraph. Natural default content.",
+          "content": {
+            "heading": "Programs for all",
+            "subtitle": "Learn from global faculty and practitioners at the forefront of their fields"
+          }
+        },
+        {
+          "id": "seq-6-2",
+          "decision": "block",
+          "blockName": "tabs-program",
+          "blockVariant": "tabs-program",
+          "rationale": "Tabbed interface with 6 tabs (People, Planet, Prosperity, Infrastructure, Digital, Cross-Cutting Areas), each containing card carousels. Tabs block is the ideal pattern for this - each tab panel holds a set of cards. The view-all link at the bottom connects to the full listing.",
+          "selector": ".lp__tab",
+          "content": {
+            "tabs": ["People", "Planet", "Prosperity", "Infrastructure", "Digital", "Cross-Cutting Areas"],
+            "viewAllLink": "View All Courses"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalSections": 6,
+    "defaultContentSequences": 4,
+    "blockSequences": 6,
+    "blocksUsed": ["hero-video", "cards-overlay", "cards-program", "carousel-program", "form-finder", "tabs-program"],
+    "sectionStyles": []
+  }
+}

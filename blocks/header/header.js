@@ -4,6 +4,7 @@ import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktopWide = window.matchMedia('(min-width: 1280px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -72,7 +73,7 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  document.body.style.overflowY = '';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -183,6 +184,8 @@ export default async function decorate(block) {
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
+  const isNavHome = navPath.endsWith('/nav-home');
+  if (isNavHome) nav.classList.add('nav-home');
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
@@ -192,11 +195,11 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
-  }
+  navBrand.querySelectorAll('.button').forEach((btn) => {
+    btn.className = '';
+    const container = btn.closest('.button-container');
+    if (container) container.className = '';
+  });
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
@@ -218,10 +221,40 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
-    const search = navTools.querySelector('a[href*="search"]');
-    if (search && search.textContent === '') {
-      search.setAttribute('aria-label', 'Search');
+    const searchLink = navTools.querySelector('a');
+    if (searchLink && searchLink.textContent.trim().toLowerCase() === 'search') {
+      const wrapper = searchLink.closest('.default-content-wrapper') || navTools;
+      if (isNavHome) {
+        // icon-only search button for homepage
+        const btn = document.createElement('a');
+        btn.className = 'nav-search-icon';
+        btn.href = '/en/search';
+        btn.setAttribute('aria-label', 'Search');
+        btn.innerHTML = '<span class="icon icon-search"><img data-icon-name="search" src="/icons/search.svg" alt="Search" loading="lazy"></span>';
+        wrapper.replaceChildren(btn);
+      } else {
+        // pill search input for inner pages
+        const form = document.createElement('form');
+        form.className = 'nav-search-form';
+        form.action = '/en/search';
+        form.method = 'get';
+        form.innerHTML = `
+          <input type="search" name="q" placeholder="Search Academy" aria-label="Search Academy" autocomplete="off">
+          <button type="submit" aria-label="Search">
+            <span class="icon icon-search"><img data-icon-name="search" src="/icons/search.svg" alt="Search" loading="lazy"></span>
+          </button>`;
+        wrapper.replaceChildren(form);
+      }
     }
+  }
+
+  // add "back to worldbank.org" link for nav-home mobile menu
+  if (isNavHome && navSections) {
+    const backLink = document.createElement('a');
+    backLink.className = 'nav-back-link';
+    backLink.href = 'https://www.worldbank.org/ext/en/home';
+    backLink.innerHTML = 'back to <strong>worldbank.org</strong>';
+    navSections.querySelector('.default-content-wrapper')?.append(backLink);
   }
 
   // hamburger for mobile
@@ -233,12 +266,22 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  if (isNavHome) {
+    // nav-home: wider breakpoint (1280px) — inline nav on large screens, hamburger below
+    toggleMenu(nav, navSections, isDesktopWide.matches);
+    isDesktopWide.addEventListener('change', () => toggleMenu(nav, navSections, isDesktopWide.matches));
+  } else {
+    // default: prevent mobile nav behavior on window resize
+    toggleMenu(nav, navSections, isDesktop.matches);
+    isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  }
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  if (isNavHome) {
+    navWrapper.classList.add('nav-home');
+    block.closest('header').classList.add('nav-home');
+  }
   navWrapper.append(nav);
   block.append(navWrapper);
 
