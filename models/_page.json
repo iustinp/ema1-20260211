@@ -21,6 +21,36 @@
           "name": "keywords",
           "multi": true,
           "label": "Keywords"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "nav",
+          "label": "Navigation",
+          "description": "Path to navigation fragment (e.g. /nav-home). Defaults to /nav if empty."
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "template",
+          "label": "Template",
+          "description": "Page template (e.g. homepage, practitioner-program). Applied as a class on the body element."
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "breadcrumbs",
+          "label": "Breadcrumbs",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "true"
+            },
+            {
+              "name": "No",
+              "value": "false"
+            }
+          ]
         }
       ]
     }
